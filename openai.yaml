@@ -1,0 +1,3 @@
+display_name: 火險報價
+short_description: 商業火災保險報價單與附加條款自動化
+default_prompt: 請使用火險報價 skill 幫我整理商業火災保險資料，產生報價單並檢查附加條款。
