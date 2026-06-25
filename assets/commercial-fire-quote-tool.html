@@ -565,7 +565,7 @@
         for (const field of moneyFields) {
           if (field === sourceField) continue;
           if (fieldMeta[field].aliases.some(alias => content.includes(alias))) {
-            hits.push({ field, key: fieldMeta[field].key, note: `含${sourceLabel}` });
+            hits.push({ field, key: fieldMeta[field].key, note: `含於${sourceLabel}` });
           }
         }
       }
