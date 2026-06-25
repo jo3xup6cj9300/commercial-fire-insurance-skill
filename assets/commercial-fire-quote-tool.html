@@ -310,6 +310,9 @@
           <label class="field wide">通訊地址
             <input id="mailingAddress">
           </label>
+          <label class="field wide">保險期間
+            <input id="insurancePeriod" placeholder="例：2026/07/01 中午12時起至 2027/07/01 中午12時止">
+          </label>
         </div>
 
         <div class="section-title">標的物地址與保額</div>
@@ -744,6 +747,7 @@
           <div class="info-label">代表人</div><div>${escapeHtml(byId("representative").value)}</div>
           <div class="info-label">電話</div><div>${escapeHtml(byId("phone").value)}</div>
           <div class="info-label">通訊地址</div><div style="grid-column: span 3">${escapeHtml(byId("mailingAddress").value)}</div>
+          <div class="info-label">保險期間</div><div style="grid-column: span 3">${escapeHtml(byId("insurancePeriod").value)}</div>
         </div>
 
         <h3>本保險契約所承保之危險事故</h3>
@@ -824,6 +828,7 @@
       byId("representative").value = "王小明";
       byId("phone").value = "02-0000-0000";
       byId("mailingAddress").value = "臺北市範例區測試路100號";
+      byId("insurancePeriod").value = "2026/07/01 中午12時起至 2027/07/01 中午12時止";
       byId("locations").innerHTML = "";
       addLocation({
         siteName: "範例-服務廠A",
@@ -852,7 +857,7 @@
     }
 
     function clearAll() {
-      ["companyName", "taxId", "representative", "phone", "mailingAddress", "remarks"].forEach(id => byId(id).value = "");
+      ["companyName", "taxId", "representative", "phone", "mailingAddress", "insurancePeriod", "remarks"].forEach(id => byId(id).value = "");
       byId("locations").innerHTML = "";
       addLocation();
       document.querySelectorAll(".cover-on").forEach((el, idx) => el.checked = idx === 0);
