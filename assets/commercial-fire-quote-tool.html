@@ -509,6 +509,9 @@
               <label class="field wide">標的物地址
                 <input data-field="address" value="${escapeHtml(data.address || "")}">
               </label>
+              <label class="field">使用性質
+                <input data-field="usageNature" value="${escapeHtml(data.usageNature || "")}" placeholder="例：辦公室、堆棧、倉庫">
+              </label>
               <label class="field wide">建築結構</label>
               <textarea class="wide" data-field="structure" placeholder="手寫內容可打在這裡">${escapeHtml(data.structure || "")}</textarea>
             </div>
@@ -711,6 +714,7 @@
           <td>${idx + 1}</td>
           <td>${escapeHtml(loc.siteName || "")}</td>
           <td>${escapeHtml(loc.address || "")}</td>
+          <td>${escapeHtml(loc.usageNature || "")}</td>
           <td style="text-align:right">${displayPropertyCell(loc, "building")}</td>
           <td style="text-align:right">${displayPropertyCell(loc, "decoration")}</td>
           <td style="text-align:right">${displayPropertyCell(loc, "machinery")}</td>
@@ -755,12 +759,12 @@
         <table>
           <thead>
             <tr>
-              <th style="width:38px">#</th><th>名稱</th><th>標的物地址</th>
+              <th style="width:38px">#</th><th>名稱</th><th>標的物地址</th><th>使用性質</th>
               <th>建築物</th><th>營業裝修</th><th>機器設備</th><th>營業生財</th><th>貨物</th>${repairCol}<th>小計</th><th>建築結構</th>
             </tr>
           </thead>
-          <tbody>${subjectRows || `<tr><td colspan="${industry === "汽車業" ? 11 : 10}">尚未輸入標的物</td></tr>`}</tbody>
-          <tfoot><tr><td colspan="${industry === "汽車業" ? 10 : 9}" style="text-align:right;font-weight:700">火險總保額</td><td style="font-weight:700;text-align:right">${fmtMoney(total)}</td></tr></tfoot>
+          <tbody>${subjectRows || `<tr><td colspan="${industry === "汽車業" ? 12 : 11}">尚未輸入標的物</td></tr>`}</tbody>
+          <tfoot><tr><td colspan="${industry === "汽車業" ? 11 : 10}" style="text-align:right;font-weight:700">火險總保額</td><td style="font-weight:700;text-align:right">${fmtMoney(total)}</td></tr></tfoot>
         </table>
 
         <h3>自負額</h3>
@@ -824,6 +828,7 @@
       addLocation({
         siteName: "範例-服務廠A",
         address: "臺北市範例區測試路100號1樓及2樓",
+        usageNature: "辦公室及維修服務區",
         decoration: "35000000",
         equipment: "400000",
         goods: "16000000",
@@ -833,6 +838,7 @@
       addLocation({
         siteName: "範例-服務廠B",
         address: "臺北市範例區示範街200號(全棟)",
+        usageNature: "倉庫",
         decoration: "38000000",
         machinery: "1100000",
         goods: "17500000",
